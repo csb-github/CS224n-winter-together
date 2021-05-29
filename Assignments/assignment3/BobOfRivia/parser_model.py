@@ -187,8 +187,8 @@ if __name__ == "__main__":
     def check_embedding():
         inds = torch.randint(0, 100, (4, 36), dtype=torch.long)
         selected = model.embedding_lookup(inds)
-        assert np.all(selected.data.numpy() == 0), "The result of embedding lookup: " \
-                                      + repr(selected) + " contains non-zero elements."
+        assert np.all(selected.data.numpy() == 0), "The result of embedding lookup: " \  #np.all(axis=None) axis为None时对所有元素作与运算，返回True或False
+                                      + repr(selected) + " contains non-zero elements."   # axis不为None时对该维度作与运算
 
     def check_forward():
         inputs =torch.randint(0, 100, (4, 36), dtype=torch.long)
